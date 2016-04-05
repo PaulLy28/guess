@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guessing Game</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+
+
+
+
+</head>
+<body>
+
+</body>
+
+
+
+<script>
+    function secretCode(){
+        var random_num = Math.floor((Math.random() * 10) + 1);
+
+        this.secretNum = function() {
+            return random_num;
+        };
+
+        this.guessNum = function(num){
+            if (num > random_num){
+                return "lower";
+            }
+            else if (num < random_num){
+                return "higher";
+            }
+            else {
+                return "You guessed it!";
+            }
+        }
+    }
+
+    var secret = new secretCode();
+
+
+
+    //guess number
+    //var guess = $("guess_num").val();
+
+    $("#guess_num").click(function(){
+        this.secretNum();
+        $("#guess_num").val();
+
+        console.log("secretNum: " + secretNum());
+    });
+
+    $("#guess_btn").click(function(){
+        this.guessNum(num);
+
+    });
+
+    //dom creation
+    var input = $("<input>").attr({
+        type: "number",
+        id: "guess_num"
+    });
+
+    var button = $('<input>').attr({
+        type: "button",
+        id: "guess_btn",
+        value: 'Guess'
+    });
+
+    var answer = $('<div>').attr({
+        id: "response",
+        text: "You did it "
+    });
+
+//document load
+    $(document).ready(function(){
+        $("body").append(input, button, answer);
+        $("#guess_num").click(function(){
+            secretNum();
+            $("#guess_num").val();
+
+            console.log("secretNum: " + secretNum());
+        });
+
+    });
+
+
+</script>
+</html>
