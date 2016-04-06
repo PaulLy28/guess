@@ -5,9 +5,16 @@
     <title>Guessing Game OOP</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
+    <style>
+        .game_area {
+            text-align: center;
+        }
+    </style>
+
 </head>
 
 <body>
+    <div class="game_area"></div>
 </body>
 
 <script>
@@ -16,24 +23,48 @@
         var random_num = Math.floor((Math.random() * 10) + 1);
         var self = this;
 
+        this.secretNum = function() {
+            return random_num;
+        };
+
+        this.guessNum = function(num) {
+            if (num > random_num) {
+                //return "lower";
+                $("#response").text("lower");
+            }
+            else if (num < random_num) {
+                //return "higher";
+                $("#response").text("higher");
+            }
+            else {
+                self.resetNum();
+                $("#response").text("winner");
+                return "Win";
+            }
+        };
+        this.resetNum = function(){
+            random_num = Math.floor((Math.random() * 10) + 1);
+        };
+
         //dom creation
         this.domObjects = function() {
-            var input = $("<input>").attr({
+            var input = $("<input>", {
                 type: "number",
                 id: "guess_num"
             });
 
-            var button = $('<input>').attr({
+            var button = $('<input>', {
                 type: "button",
                 id: "guess_btn",
                 value: 'Guess'
             });
 
-            var answer = $('<div>').attr({
+            var answer = $('<div>', {
                 id: "response",
-                text: "You did it "
+                text: "Make a Guess "
             });
-            $("body").append(input, button, answer);
+            $("div").append(input, button, answer);
+
             $("#guess_btn").click(function(){
                 console.log("secret num: " + secret.secretNum());
                 var num = $("#guess_num").val();
@@ -44,28 +75,9 @@
                 }
             });
         };
-
-        this.secretNum = function() {
-            return random_num;
-        };
-
-        this.guessNum = function(num) {
-            if (num > random_num) {
-                return "lower";
-            }
-            else if (num < random_num) {
-                return "higher";
-            }
-            else {
-                self.resetNum();
-                return "Win";
-            }
-        };
-        this.resetNum = function(){
-            random_num = Math.floor((Math.random() * 10) + 1);
-        }
     }
 
+    //calls the function and dom creation
     var secret = new SecretCode();
     secret.domObjects();
 
