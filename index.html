@@ -3,83 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Guessing Game OOP</title>
+
+    <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-    <style>
-        .game_area {
-            text-align: center;
-        }
-    </style>
-
+    <script src="script.js"></script>
 </head>
 
 <body>
     <div class="game_area"></div>
+
 </body>
-
-<script>
-
-    function SecretCode(){
-        var random_num = Math.floor((Math.random() * 10) + 1);
-        var self = this;
-
-        this.secretNum = function() {
-            return random_num;
-        };
-
-        this.guessNum = function(num) {
-            if (num > random_num) {
-                //return "lower";
-                $("#response").text("lower");
-            }
-            else if (num < random_num) {
-                //return "higher";
-                $("#response").text("higher");
-            }
-            else {
-                self.resetNum();
-                $("#response").text("winner");
-                return "Win";
-            }
-        };
-        this.resetNum = function(){
-            random_num = Math.floor((Math.random() * 10) + 1);
-        };
-
-        //dom creation
-        this.domObjects = function() {
-            var input = $("<input>", {
-                type: "number",
-                id: "guess_num"
-            });
-
-            var button = $('<input>', {
-                type: "button",
-                id: "guess_btn",
-                value: 'Guess'
-            });
-
-            var answer = $('<div>', {
-                id: "response",
-                text: "Make a Guess "
-            });
-            $("div").append(input, button, answer);
-
-            $("#guess_btn").click(function(){
-                console.log("secret num: " + secret.secretNum());
-                var num = $("#guess_num").val();
-                //console log below used for testing
-                //console.log("guessed number " + secret.guessNum(num));
-                if ("Win" === secret.guessNum(num)){
-                    $("#guess_num").val("");
-                }
-            });
-        };
-    }
-
-    //calls the function and dom creation
-    var secret = new SecretCode();
-    secret.domObjects();
-
-</script>
 </html>
