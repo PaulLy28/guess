@@ -36,8 +36,10 @@ function SecretCode(){
     /*clears input when guess is correct*/
     this.guessButton = function() {
         var num = $("#guess_num").val();
-        if ("Win" == self.guessNum(num)){
-            $("#guess_num").val("");
+        if (num) {
+            if ("Win" == self.guessNum(num)) {
+                $("#guess_num").val("");
+            }
         }
 
     };
@@ -53,7 +55,8 @@ function SecretCode(){
     this.domObjects = function() {
         var input = $("<input>", {
                 type: "number",
-                id: "guess_num"
+                id: "guess_num",
+                placeholder: "Enter a number"
         }),
 
             button = $("<input>", {
@@ -82,6 +85,7 @@ function SecretCode(){
         });
         /*append dom objects*/
         $("div").append(input, button, reset, answer, life);
+
         /*guess button click function*/
         $("#guess_btn").click(function(){
             //console log below used for testing
