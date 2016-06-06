@@ -83,6 +83,7 @@ function SecretCode(){
                 "<img src='http://www.mariowiki.com/images/thumb/2/20/NSMBU-1_Up_Mushroom.png/120px-NSMBU-1_Up_Mushroom.png' id='life2'>" +
                 "<img src='http://www.mariowiki.com/images/thumb/2/20/NSMBU-1_Up_Mushroom.png/120px-NSMBU-1_Up_Mushroom.png' id='life3'>"
         });
+
         /*append dom objects*/
         $("div").append(input, button, reset, answer, life);
 
@@ -92,6 +93,7 @@ function SecretCode(){
             console.log("secret num: " + self.secretNum());
             self.guessButton();
         });
+
         /*reset button click function*/
         $("#reset_btn").click(function(){
             self.resetGame();
