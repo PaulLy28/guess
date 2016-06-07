@@ -11,6 +11,9 @@ function SecretCode(){
         if (mushrooms == 1 && num != random_num) {
             $("#response").text("loser");
             $("#lives img:first-child").remove();
+            $("#mario").css({"left":"80%" , "top":"60%"});
+            setTimeout(function(){
+            $("#mario").attr("id", "mario_dies");},500)
         }
         else if (num == random_num) {
             $("#response").text("winner");
@@ -18,21 +21,33 @@ function SecretCode(){
         }
         else if (num > random_num) {
             //return "lower";
-            $("#response").text("lower");
+            mario_drop("lower");
+            /*$("#response").text("lower");
             $("#lives img:first-child").remove();
-            mushrooms--;
+            mushrooms--;*/
             console.log("mushrooms remaining", mushrooms);
 
         }
         else if (num < random_num) {
             //return "higher";
-            $("#response").text("higher");
+            mario_drop("higher");
+            /*$("#response").text("higher");
             $("#lives img:first-child").remove();
-            mushrooms--;
+            mushrooms--;*/
             console.log("mushrooms remaining", mushrooms);
         }
 
     };
+
+    function mario_drop(text) {
+        $("#response").text(text);
+        $("#lives img:first-child").remove();
+        mushrooms--;
+        $("#mario").css({"left":"20%" , "top":"20%"});
+        if (mushrooms == 1) {
+            $("#mario").css({"left":"60%" , "top":"60%"});
+        }
+    }
     /*clears input when guess is correct*/
     this.guessButton = function() {
         var num = $("#guess_num").val();
@@ -49,6 +64,8 @@ function SecretCode(){
         mushrooms = 3;
         $('.game_area').html("");
         self.domObjects();
+        $("#mario").css({"left":"5%" , "top":"5%"});
+        $("#mario_dies").attr("id", "mario").css({"left":"5%" , "top":"5%"});
     };
 
     //dom creation
@@ -79,13 +96,13 @@ function SecretCode(){
             life = $("<div>", {
                 id: "lives",
                 html:
-                "<img src='http://www.mariowiki.com/images/thumb/2/20/NSMBU-1_Up_Mushroom.png/120px-NSMBU-1_Up_Mushroom.png' id='life1'>" +
-                "<img src='http://www.mariowiki.com/images/thumb/2/20/NSMBU-1_Up_Mushroom.png/120px-NSMBU-1_Up_Mushroom.png' id='life2'>" +
-                "<img src='http://www.mariowiki.com/images/thumb/2/20/NSMBU-1_Up_Mushroom.png/120px-NSMBU-1_Up_Mushroom.png' id='life3'>"
+                "<img src='images/green_mushroom.png'>" +
+                "<img src='images/green_mushroom.png'>" +
+                "<img src='images/green_mushroom.png'>"
         });
 
         /*append dom objects*/
-        $("div").append(input, button, reset, answer, life);
+        $(".game_area").append(input, button, reset, answer, life);
 
         /*guess button click function*/
         $("#guess_btn").click(function(){
@@ -100,6 +117,14 @@ function SecretCode(){
         });
     };
 
+    this.paraMove = function() {
+        var background = $("#background1");
+        var background_position = background.offset();
+        /*console.log(background_position.left);*/
+        /*background.css("left", 15 + background_position.left + "px");*/
+        requestAnimationFrame(self.paraMove());
+    }
+
 }
 
 $(document).ready(function(){
@@ -107,5 +132,7 @@ $(document).ready(function(){
     //calls the function and dom creation
     var secret = new SecretCode();
     secret.domObjects();
+
+    /*secret.paraMove();*/
 
 });
