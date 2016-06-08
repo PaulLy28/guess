@@ -26,8 +26,8 @@ Guess uses mainly Javascript and jQuery to dynamically create the game with some
 
 ### Things learned
 
-*Javascript
-*Basic Javascript OOP
-*Dynamically creating elements
+* Javascript
+* Basic Javascript OOP
+* Dynamically creating elements
 
 
