@@ -21,13 +21,13 @@ function SecretCode(){
             return "Win";
         }
         else if (num > random_num) {
-            //return "lower";
+            //return hint "lower";
             mario_drop("lower");
             /*console.log("mushrooms remaining", mushrooms);*/
 
         }
         else if (num < random_num) {
-            //return "higher";
+            //return hint "higher";
             mario_drop("higher");
             /*console.log("mushrooms remaining", mushrooms);*/
         }
@@ -47,7 +47,7 @@ function SecretCode(){
             $("#mario").css({"left":"35%" , "top":"25%"});
         }
     }
-    /*clears input when guess is correct*/
+    //clears input when guess is correct
     this.guessButton = function() {
         var num = $("#guess_num").val();
         if (num) {
@@ -56,7 +56,7 @@ function SecretCode(){
             }
         }
     };
-    /*reset game*/
+    //reset game
     this.resetGame = function() {
         random_num = Math.floor((Math.random() * 10) + 1);
         mushrooms = 3;
@@ -100,17 +100,17 @@ function SecretCode(){
                 "<img src='images/green_mushroom.png'>"
         });
 
-        /*append dom objects*/
+        //append dom objects
         $(".game_area").append(input, button, reset, answer, life);
 
-        /*guess button click function*/
+        //guess button click function
         $("#guess_btn").click(function(){
             //console log below used for testing
             /*console.log("secret num: " + self.secretNum());*/
             self.guessButton();
         });
 
-        /*reset button click function*/
+        //reset button click function
         $("#reset_btn").click(function(){
             self.resetGame();
         });
@@ -119,7 +119,6 @@ function SecretCode(){
 }
 
 $(document).ready(function(){
-
     //calls the function and dom creation
     var secret = new SecretCode();
     secret.domObjects();

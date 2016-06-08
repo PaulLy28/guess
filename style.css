@@ -24,6 +24,7 @@
     position: absolute;
     width: 100%;
 }
+/*keyframes animation : name of keyframes, duration, animation timing, count*/
 #background1 {
     animation: background_parallax 10s linear infinite;
 }
@@ -32,16 +33,6 @@
     left: 100%;
     animation: background_parallax2 10s linear infinite;
 
-}
-
-#ground1 {
-    bottom: 0;
-    animation: ground_parallax 5s linear infinite;
-}
-#ground2 {
-    left: 100%;
-    bottom: 0;
-    animation: ground_parallax2 5s linear infinite;
 }
 
 @keyframes background_parallax {
@@ -62,6 +53,16 @@
     }
 }
 
+#ground1 {
+    bottom: 0;
+    animation: ground_parallax 5s linear infinite;
+}
+
+#ground2 {
+    left: 100%;
+    bottom: 0;
+    animation: ground_parallax2 5s linear infinite;
+}
 
 @keyframes ground_parallax {
     0% {
@@ -80,7 +81,8 @@
         left: 0%
     }
 }
-
+/*animation: name, duration, number of sprites, iteration*/
+/*transition is to move the sprites to another location smoothly*/
 #mario {
     background-image: url("images/mario_sprites.png");
     position: absolute;
@@ -93,7 +95,7 @@
 }
 
 @keyframes play {
-    from { background-position:    0; }
+    from { background-position: 0; }
     to { background-position: -105px; }
 }
 
@@ -109,7 +111,7 @@
 }
 
 @keyframes mario_die {
-    from { background-position:    0; }
+    from { background-position: 0; }
     to { background-position: -50px; }
 }
 
@@ -117,7 +119,6 @@
     background-image: url("images/bullet.png");
     position: absolute;
     display: none;
-    /*right: 5%;*/
     right: -16%;
     bottom: 10%;
     width: 128px;
