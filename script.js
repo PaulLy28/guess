@@ -23,19 +23,13 @@ function SecretCode(){
         else if (num > random_num) {
             //return "lower";
             mario_drop("lower");
-            /*$("#response").text("lower");
-            $("#lives img:first-child").remove();
-            mushrooms--;*/
-            console.log("mushrooms remaining", mushrooms);
+            /*console.log("mushrooms remaining", mushrooms);*/
 
         }
         else if (num < random_num) {
             //return "higher";
             mario_drop("higher");
-            /*$("#response").text("higher");
-            $("#lives img:first-child").remove();
-            mushrooms--;*/
-            console.log("mushrooms remaining", mushrooms);
+            /*console.log("mushrooms remaining", mushrooms);*/
         }
 
     };
@@ -61,7 +55,6 @@ function SecretCode(){
                 $("#guess_num").val("");
             }
         }
-
     };
     /*reset game*/
     this.resetGame = function() {
@@ -96,7 +89,7 @@ function SecretCode(){
 
             answer = $("<div>", {
                 id: "response",
-                text: "Make a Guess "
+                text: "Hint"
         }),
 
             life = $("<div>", {
@@ -113,7 +106,7 @@ function SecretCode(){
         /*guess button click function*/
         $("#guess_btn").click(function(){
             //console log below used for testing
-            console.log("secret num: " + self.secretNum());
+            /*console.log("secret num: " + self.secretNum());*/
             self.guessButton();
         });
 
@@ -123,12 +116,6 @@ function SecretCode(){
         });
     };
 
-    this.paraMove = function() {
-        var background = $("#background1");
-        var background_position = background.offset();
-        requestAnimationFrame(self.paraMove());
-    }
-
 }
 
 $(document).ready(function(){
@@ -136,7 +123,4 @@ $(document).ready(function(){
     //calls the function and dom creation
     var secret = new SecretCode();
     secret.domObjects();
-
-    /*secret.paraMove();*/
-
 });
