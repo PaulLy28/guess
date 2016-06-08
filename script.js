@@ -9,11 +9,12 @@ function SecretCode(){
 
     this.guessNum = function(num) {
         if (mushrooms == 1 && num != random_num) {
-            $("#response").text("loser");
+            $("#response").text("Game Over!");
             $("#lives img:first-child").remove();
-            $("#mario").css({"left":"80%" , "top":"60%"});
+            $("#mario").css({"left":"70%" , "top":"70%"});
             setTimeout(function(){
-            $("#mario").attr("id", "mario_dies");},500)
+            $("#mario").attr("id", "mario_dies");},500);
+            $(".bullet").attr("id", "bullet").css("display", "inline");
         }
         else if (num == random_num) {
             $("#response").text("winner");
@@ -38,14 +39,18 @@ function SecretCode(){
         }
 
     };
-
+    //mario drop
+        //number hint
+        //mushroom life removal
+        //number of mushroom count
+        //mario sprite position
     function mario_drop(text) {
         $("#response").text(text);
         $("#lives img:first-child").remove();
         mushrooms--;
-        $("#mario").css({"left":"20%" , "top":"20%"});
+        $("#mario").css({"left":"15%" , "top":"15%"});
         if (mushrooms == 1) {
-            $("#mario").css({"left":"60%" , "top":"60%"});
+            $("#mario").css({"left":"35%" , "top":"25%"});
         }
     }
     /*clears input when guess is correct*/
@@ -66,6 +71,7 @@ function SecretCode(){
         self.domObjects();
         $("#mario").css({"left":"5%" , "top":"5%"});
         $("#mario_dies").attr("id", "mario").css({"left":"5%" , "top":"5%"});
+        $("#bullet").removeAttr("id","bullet");
     };
 
     //dom creation
@@ -120,8 +126,6 @@ function SecretCode(){
     this.paraMove = function() {
         var background = $("#background1");
         var background_position = background.offset();
-        /*console.log(background_position.left);*/
-        /*background.css("left", 15 + background_position.left + "px");*/
         requestAnimationFrame(self.paraMove());
     }
 

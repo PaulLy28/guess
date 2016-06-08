@@ -112,3 +112,24 @@
     from { background-position:    0; }
     to { background-position: -50px; }
 }
+
+#bullet {
+    background-image: url("images/bullet.png");
+    position: absolute;
+    display: none;
+    /*right: 5%;*/
+    right: -16%;
+    bottom: 10%;
+    width: 128px;
+    height: 128px;
+    animation: banzai 2s linear;
+}
+
+@keyframes banzai {
+    0% {
+        right: 0%
+    }
+    100% {
+        right: 100%
+    }
+}
