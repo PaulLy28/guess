@@ -30,4 +30,6 @@ Guess uses mainly Javascript and jQuery to dynamically create the game with some
 * Basic Javascript OOP
 * Dynamically creating elements
 
+# Live Demo 
 
+https://paully28.github.io/guess/

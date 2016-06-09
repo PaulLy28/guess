@@ -122,4 +122,5 @@ $(document).ready(function(){
     //calls the function and dom creation
     var secret = new SecretCode();
     secret.domObjects();
+    document.body.addEventListener('touchstart',function(){},false);
 });
