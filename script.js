@@ -11,9 +11,9 @@ function SecretCode(){
         if (mushrooms == 1 && num != random_num) {
             $("#response").text("Game Over!");
             $("#lives img:first-child").remove();
-            $("#mario").css({"left":"70%" , "top":"70%"});
+            $("#mario").css({"left":"35%" , "top":"70%"});
             setTimeout(function(){
-            $("#mario").attr("id", "mario_dies");},500);
+            $("#mario").attr("id", "mario_dies");},1000);
             $(".bullet").attr("id", "bullet").css("display", "inline");
         }
         else if (num == random_num) {
@@ -44,7 +44,7 @@ function SecretCode(){
         mushrooms--;
         $("#mario").css({"left":"15%" , "top":"15%"});
         if (mushrooms == 1) {
-            $("#mario").css({"left":"35%" , "top":"25%"});
+            $("#mario").css({"left":"25%" , "top":"50%"});
         }
     }
     //clears input when guess is correct

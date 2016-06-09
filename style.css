@@ -12,12 +12,12 @@
 .para_container {
     box-sizing: border-box;
     position: relative;
+    margin: auto;
     width: 800px;
     height: 340px;
     overflow: hidden;
     z-index: -1;
     background-position: center;
-    transform: translate(20%, -10%);
 }
 
 .para_element {
