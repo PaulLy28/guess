@@ -32,4 +32,4 @@ Guess uses mainly Javascript and jQuery to dynamically create the game with some
 
 # Live Demo 
 
-https://paully28.github.io/guess/
+[Live Demo](https://paully28.github.io/guess/)
