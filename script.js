@@ -72,19 +72,23 @@ function SecretCode(){
         var input = $("<input>", {
                 type: "number",
                 id: "guess_num",
-                placeholder: "Enter a number"
+                width: 30,
+                height: 20,
+                placeholder: " #"
         }),
 
             button = $("<input>", {
-                type: "button",
+                type: "image",
                 id: "guess_btn",
-                value: "Guess"
+                value: "Guess",
+                src: "images/guess_btn.png"
         }),
 
             reset = $("<input>", {
-                type: "button",
+                type: "image",
                 id: "reset_btn",
-                value: "Reset"
+                value: "Reset",
+                src: "images/reset_btn.png"
         }),
 
             answer = $("<div>", {
