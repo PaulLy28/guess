@@ -9,6 +9,8 @@
     height: 50px;
 }
 
+/*add css style to hide the loser and winner images then on js add show images to the correct condition*/
+
 h1, h4 {
     text-align: center;
 }
