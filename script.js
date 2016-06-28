@@ -17,18 +17,26 @@ function SecretCode(){
             $(".bullet").attr("id", "bullet").css("display", "inline");
         }
         else if (num == random_num) {
-            $("#response").text("winner");
+            /*$("#response").text("winner");*/
+            $("#response").html("<img src='images/game_winner.png'>");
             return "Win";
         }
         else if (num > random_num) {
             //return hint "lower";
-            mario_drop("lower");
+
+            /*mario_drop("lower");*/
+            mario_drop("<img src='images/Lower1.png'>");
+
             /*console.log("mushrooms remaining", mushrooms);*/
 
         }
         else if (num < random_num) {
             //return hint "higher";
-            mario_drop("higher");
+
+            /*mario_drop("higher");*/
+
+            mario_drop("<img src='images/higher1.png'>");
+
             /*console.log("mushrooms remaining", mushrooms);*/
         }
 
@@ -39,7 +47,8 @@ function SecretCode(){
         //number of mushroom count
         //mario sprite position
     function mario_drop(text) {
-        $("#response").text(text);
+        $("#response").html(text);
+        /*$("#response").text(text);*/
         $("#lives img:first-child").remove();
         mushrooms--;
         $("#mario").css({"left":"15%" , "top":"15%"});
@@ -93,7 +102,9 @@ function SecretCode(){
 
             answer = $("<div>", {
                 id: "response",
-                text: "Hint"
+                class: game_won,
+                /*text: "Hint"*/
+                html: "<img src='images/hint1.png'>"
         }),
 
             life = $("<div>", {
