@@ -18,7 +18,7 @@ function SecretCode(){
         }
         else if (num == random_num) {
             /*$("#response").text("winner");*/
-            $("#response").html("<img src='images/game_winner.png'>");
+            $("#answer").html("<img src='images/game_winner.png'>");
             return "Win";
         }
         else if (num > random_num) {
@@ -100,12 +100,17 @@ function SecretCode(){
                 src: "images/reset_btn.png"
         }),
 
-            answer = $("<div>", {
+            hint = $("<div>", {
                 id: "response",
-                class: game_won,
                 /*text: "Hint"*/
                 html: "<img src='images/hint1.png'>"
         }),
+
+            result = $("<div>", {
+                id: "answer"
+                /*text: "Hint"*/
+                /*html: "<img src='images/hint1.png'>"*/
+            }),
 
             life = $("<div>", {
                 id: "lives",
@@ -116,7 +121,7 @@ function SecretCode(){
         });
 
         //append dom objects
-        $(".game_area").append(input, button, reset, answer, life);
+        $(".game_area").append(input, button, reset, hint, result, life);
 
         //guess button click function
         $("#guess_btn").click(function(){
