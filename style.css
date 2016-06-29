@@ -1,3 +1,6 @@
+body{
+    background-color: #5691cc;
+}
 .game_area {
     text-align: center;
     transform: translateY(200%);
@@ -30,12 +33,9 @@
 
 /*add css style to hide the loser and winner images then on js add show images to the correct condition*/
 
-h1, h4 {
+h1, h4, p {
     text-align: center;
-}
-
-p {
-    text-align: center;
+    font-family: 'Indie Flower', cursive;
 }
 
 .guess_btn{
@@ -68,6 +68,7 @@ p {
     transform: translateY(33%);
 }
 
+/*background and sprite animation*/
 .para_container {
     box-sizing: border-box;
     position: relative;
