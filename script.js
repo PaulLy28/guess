@@ -9,7 +9,9 @@ function SecretCode(){
 
     this.guessNum = function(num) {
         if (mushrooms == 1 && num != random_num) {
-            $("#response").text("Game Over!");
+            /*$("#response").text("Game Over!");*/
+            $("#response").html("<img src='images/game_over1.png'>");
+            $("#game_over").css({"display" : "block"});
             $("#lives img:first-child").remove();
             $("#mario").css({"left":"35%" , "top":"70%"});
             setTimeout(function(){
@@ -18,14 +20,15 @@ function SecretCode(){
         }
         else if (num == random_num) {
             /*$("#response").text("winner");*/
-            $("#answer").html("<img src='images/game_winner.png'>");
+            $("#response").html("<img src='images/winner1.png'>");
+            $("#game_winning").css({"display": "block"});
             return "Win";
         }
         else if (num > random_num) {
             //return hint "lower";
 
             /*mario_drop("lower");*/
-            mario_drop("<img src='images/Lower1.png'>");
+            mario_drop("<img src='images/lower1.png'>");
 
             /*console.log("mushrooms remaining", mushrooms);*/
 
@@ -46,9 +49,9 @@ function SecretCode(){
         //mushroom life removal
         //number of mushroom count
         //mario sprite position
-    function mario_drop(text) {
-        $("#response").html(text);
-        /*$("#response").text(text);*/
+    function mario_drop(image_hint) {
+        /*$("#response").text(text); shows text*/
+        $("#response").html(image_hint);
         $("#lives img:first-child").remove();
         mushrooms--;
         $("#mario").css({"left":"15%" , "top":"15%"});
@@ -74,6 +77,8 @@ function SecretCode(){
         $("#mario").css({"left":"5%" , "top":"5%"});
         $("#mario_dies").attr("id", "mario").css({"left":"5%" , "top":"5%"});
         $("#bullet").removeAttr("id","bullet");
+        $("#game_winning").css({"display": "none"});
+        $("#game_over").css({"display": "none"});
     };
 
     //dom creation
@@ -106,12 +111,6 @@ function SecretCode(){
                 html: "<img src='images/hint1.png'>"
         }),
 
-            result = $("<div>", {
-                id: "answer"
-                /*text: "Hint"*/
-                /*html: "<img src='images/hint1.png'>"*/
-            }),
-
             life = $("<div>", {
                 id: "lives",
                 html:
@@ -121,7 +120,7 @@ function SecretCode(){
         });
 
         //append dom objects
-        $(".game_area").append(input, button, reset, hint, result, life);
+        $(".game_area").append(input, button, reset, hint, life);
 
         //guess button click function
         $("#guess_btn").click(function(){
