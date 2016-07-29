@@ -84,7 +84,7 @@ function SecretCode(){
     //dom creation
     this.domObjects = function() {
         var input = $("<input>", {
-                type: "number",
+                type: "text",
                 id: "guess_num",
                 width: 30,
                 height: 20,
