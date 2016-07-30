@@ -3,12 +3,8 @@ body{
 }
 .game_area {
     text-align: center;
-    transform: translateY(200%);
-
-}
-
-.game_area_container {
-    transform: translateY(-15%);
+    transform: translateY(80%);
+    position: relative;
 }
 
 #response img {
@@ -18,12 +14,10 @@ body{
 
 #game_winning {
     display: none;
-    transform: translateX(150%);
 }
 
 #game_over {
     display: none;
-    transform: translateX(250%);
 }
 
 #lives img {
@@ -60,8 +54,6 @@ h1, h4, p {
     transform: translateY(33%);
 }
 
-
-
 #reset_btn {
     width: 35px;
     height: 25px;
@@ -78,6 +70,7 @@ h1, h4, p {
     overflow: hidden;
     z-index: -1;
     background-position: center;
+    transform: translateY(-30%);
 }
 
 .para_element {

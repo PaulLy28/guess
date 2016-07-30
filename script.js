@@ -10,7 +10,7 @@ function SecretCode(){
     this.guessNum = function(num) {
         if (mushrooms == 1 && num != random_num) {
             /*$("#response").text("Game Over!");*/
-            $("#response").html("<img src='images/game_over1.png'>");
+            $("#response").html("<img src='images/gameover.png'>");
             $("#game_over").css({"display" : "block"});
             $("#lives img:first-child").remove();
             $("#mario").css({"left":"35%" , "top":"70%"});
@@ -26,20 +26,12 @@ function SecretCode(){
         }
         else if (num > random_num) {
             //return hint "lower";
-
-            /*mario_drop("lower");*/
             mario_drop("<img src='images/lower1.png'>");
-
             /*console.log("mushrooms remaining", mushrooms);*/
-
         }
         else if (num < random_num) {
             //return hint "higher";
-
-            /*mario_drop("higher");*/
-
             mario_drop("<img src='images/higher1.png'>");
-
             /*console.log("mushrooms remaining", mushrooms);*/
         }
 
@@ -117,10 +109,20 @@ function SecretCode(){
                 "<img src='images/green_mushroom.png'>" +
                 "<img src='images/green_mushroom.png'>" +
                 "<img src='images/green_mushroom.png'>"
+        }),
+
+            lose = $("<div>", {
+                id: "game_over",
+                html:
+                "<img src='images/game_over.png'>"
+        }),
+            win = $("<div>", {
+                id: "game_winning",
+                html: "<img src='images/game_winner.png'>"
         });
 
         //append dom objects
-        $(".game_area").append(input, button, reset, hint, life);
+        $(".game_area").append(win, lose, input, button, reset, hint, life);
 
         //guess button click function
         $("#guess_btn").click(function(){
